@@ -20,6 +20,9 @@
         <log4j.version>2.24.3</log4j.version>
         <commons-io.version>2.18.0</commons-io.version>
         <suiteXmlFile>testng-regression.xml</suiteXmlFile>
+        <headless>false</headless>
+        <browser>chrome</browser>
+        <url>https://naveenchandaka47-cmyk.github.io/bottomless/</url>
     </properties>
 
     <dependencies>
@@ -102,11 +105,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemPropertyVariables>
-                        <headless>${headless}</headless>
-                        <url>${url}</url>
-                        <browser>${browser}</browser>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
