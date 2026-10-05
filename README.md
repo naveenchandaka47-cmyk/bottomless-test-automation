@@ -35,7 +35,7 @@ Comprehensive test cases, steps, preconditions, test data, and expected results 
 
 ---
 
-## 📁 Repository Structure
+## 📁 Repository Structure (Eclipse / Maven Layout)
 
 ```
 BottomLess-Selenium-Automation/
@@ -44,27 +44,48 @@ BottomLess-Selenium-Automation/
 │       └── regression-tests.yml      # CI/CD workflow running headless tests on push/PR
 ├── .gitignore
 ├── pom.xml                           # Maven dependencies & surefire plugin configuration
-├── testng-regression.xml             # Full regression suite runner
+├── testng-regression.xml             # Full regression suite runner (21 test cases)
 ├── testng-smoke.xml                  # Quick smoke/sanity suite runner
 ├── TEST_CASES.md                     # Markdown test cases sheet
-├── test-cases.csv                    # CSV test cases sheet for Excel/TestRail
+├── test-cases.csv                    # CSV test cases sheet for Excel/Jira
 ├── README.md                         # Documentation
 ├── src/
 │   ├── main/
-│   │   ├── java/com/bottomless/
-│   │   │   ├── constants/            # FrameworkConstants.java
-│   │   │   ├── driver/               # DriverFactory.java, DriverManager.java (ThreadLocal)
-│   │   │   ├── pages/                # Page Object classes (BasePage, HudPage, etc.)
-│   │   │   └── utils/                # ConfigReader, ScreenshotUtils, JavaScriptUtils
+│   │   ├── java/
+│   │   │   ├── Com.qa.Base/
+│   │   │   │   ├── BaseTest.java             # Browser setup, navigation, and teardown
+│   │   │   │   └── ParallelBaseTest.java     # ThreadLocal driver for parallel execution
+│   │   │   ├── Com.qa.Config/
+│   │   │   │   └── Config.properties         # App URL, browser, headless flag, timeouts
+│   │   │   ├── Com.qa.Pages/
+│   │   │   │   ├── BasePage.java             # Common explicit waits & interaction methods
+│   │   │   │   ├── HudPage.java              # Depth, unit toggle, speed indicator, rules button
+│   │   │   │   ├── BottomDockPage.java       # Float, Breathe, Sound, Theme, Atlas buttons
+│   │   │   │   ├── ThemePopoverPage.java     # Void, Mist, Tide switching & verification
+│   │   │   │   ├── SoundPopoverPage.java     # Mute/unmute, volume slider, sound presets
+│   │   │   │   ├── BreathPacerPage.java      # Concentric ring breath companion
+│   │   │   │   ├── PhilosophyModalPage.java  # 4 Radical Zeroes rules cards verification
+│   │   │   │   └── AtlasDrawerPage.java      # Milestone discoveries and atlas drawer
+│   │   │   └── Com.qa.Util/
+│   │   │       └── Utils.java                # Unified utilities (Config, Waits, JS, Screenshots)
+│   │   └── resources/
 │   └── test/
-│       ├── java/com/bottomless/
-│       │   ├── base/                 # BaseTest.java (driver setup & teardown)
-│       │   ├── listeners/            # TestListener.java (ExtentReports listener)
-│       │   ├── reports/              # ExtentManager.java, ExtentTestManager.java
-│       │   └── tests/                # TestNG test classes
+│       ├── java/
+│       │   ├── Com.qa.TestCases/
+│       │   │   ├── SmokeTest.java
+│       │   │   ├── HudAndTelemetryTest.java
+│       │   │   ├── DescentControlsTest.java
+│       │   │   ├── ThemeSwitchingTest.java
+│       │   │   ├── SoundSettingsTest.java
+│       │   │   ├── BreathPacerTest.java
+│       │   │   ├── PhilosophyModalTest.java
+│       │   │   └── AtlasDrawerTest.java
+│       │   └── utils/
+│       │       ├── ExtentManager.java        # ExtentSparkReporter configuration
+│       │       └── ExtentReportHelper.java   # TestNG ITestListener + screenshot capture
 │       └── resources/
-│           ├── config.properties     # App URL, browser, headless flag, timeouts
-│           └── log4j2.xml            # Log4j2 configuration
+│           ├── config.properties
+│           └── log4j2.xml
 ```
 
 ---
@@ -93,7 +114,7 @@ mvn clean test -Dheadless=true -DsuiteXmlFile=testng-smoke.xml
 
 ### Run Against Local Dev Server
 ```bash
-mvn clean test -Dheadless=true -Dapp.url=http://localhost:5173
+mvn clean test -Dheadless=true -Durl=http://localhost:5173
 ```
 
 ### Run on Different Browsers

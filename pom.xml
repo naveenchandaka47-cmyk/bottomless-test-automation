@@ -70,6 +70,18 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <!-- Maven Compiler Plugin -->
             <plugin>
@@ -92,7 +104,7 @@
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <headless>${headless}</headless>
-                        <app.url>${app.url}</app.url>
+                        <url>${url}</url>
                         <browser>${browser}</browser>
                     </systemPropertyVariables>
                 </configuration>
