@@ -1,14 +1,22 @@
 package Com.qa.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AtlasDrawerPage extends BasePage {
 
-    private final By drawer = By.id("milestone-drawer");
-    private final By closeBtn = By.id("btn-close-drawer");
-    private final By milestoneList = By.id("milestone-list");
-    private final By drawerTitle = By.cssSelector("#milestone-drawer .drawer-title");
+    @FindBy(id = "milestone-drawer")
+    private WebElement drawer;
+
+    @FindBy(id = "btn-close-drawer")
+    private WebElement closeBtn;
+
+    @FindBy(id = "milestone-list")
+    private WebElement milestoneList;
+
+    @FindBy(css = "#milestone-drawer .drawer-title")
+    private WebElement drawerTitle;
 
     public AtlasDrawerPage(WebDriver driver) {
         super(driver);

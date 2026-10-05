@@ -1,18 +1,34 @@
 package Com.qa.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class BottomDockPage extends BasePage {
 
-    private final By bottomControls = By.id("bottom-controls");
-    private final By btnReturn = By.id("btn-return");
-    private final By btnFloat = By.id("btn-float");
-    private final By btnBreath = By.id("btn-breath");
-    private final By btnSound = By.id("btn-sound");
-    private final By btnTheme = By.id("btn-theme");
-    private final By btnMilestones = By.id("btn-milestones");
-    private final By milestoneCount = By.id("milestone-count");
+    @FindBy(id = "bottom-controls")
+    private WebElement bottomControls;
+
+    @FindBy(id = "btn-return")
+    private WebElement btnReturn;
+
+    @FindBy(id = "btn-float")
+    private WebElement btnFloat;
+
+    @FindBy(id = "btn-breath")
+    private WebElement btnBreath;
+
+    @FindBy(id = "btn-sound")
+    private WebElement btnSound;
+
+    @FindBy(id = "btn-theme")
+    private WebElement btnTheme;
+
+    @FindBy(id = "btn-milestones")
+    private WebElement btnMilestones;
+
+    @FindBy(id = "milestone-count")
+    private WebElement milestoneCount;
 
     public BottomDockPage(WebDriver driver) {
         super(driver);

@@ -1,17 +1,31 @@
 package Com.qa.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class HudPage extends BasePage {
 
-    private final By topHud = By.id("top-hud");
-    private final By hudDepth = By.id("hud-depth");
-    private final By hudUnitToggle = By.id("hud-unit-toggle");
-    private final By hudDepthSub = By.id("hud-depth-sub");
-    private final By hudZone = By.id("hud-zone");
-    private final By hudSpeedVal = By.id("hud-speed-val");
-    private final By btnPhilosophy = By.id("btn-philosophy");
+    @FindBy(id = "top-hud")
+    private WebElement topHud;
+
+    @FindBy(id = "hud-depth")
+    private WebElement hudDepth;
+
+    @FindBy(id = "hud-unit-toggle")
+    private WebElement hudUnitToggle;
+
+    @FindBy(id = "hud-depth-sub")
+    private WebElement hudDepthSub;
+
+    @FindBy(id = "hud-zone")
+    private WebElement hudZone;
+
+    @FindBy(id = "hud-speed-val")
+    private WebElement hudSpeedVal;
+
+    @FindBy(id = "btn-philosophy")
+    private WebElement btnPhilosophy;
 
     public HudPage(WebDriver driver) {
         super(driver);

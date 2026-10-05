@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
@@ -12,9 +13,14 @@ import java.util.List;
 
 public class PhilosophyModalPage extends BasePage {
 
-    private final By modal = By.id("philosophy-modal");
-    private final By closeBtn = By.id("btn-close-philosophy");
-    private final By ruleHeadings = By.cssSelector("#philosophy-modal .rule-item h3");
+    @FindBy(id = "philosophy-modal")
+    private WebElement modal;
+
+    @FindBy(id = "btn-close-philosophy")
+    private WebElement closeBtn;
+
+    @FindBy(css = "#philosophy-modal .rule-item h3")
+    private List<WebElement> ruleHeadings;
 
     public PhilosophyModalPage(WebDriver driver) {
         super(driver);
@@ -22,7 +28,7 @@ public class PhilosophyModalPage extends BasePage {
 
     public boolean isModalDisplayed() {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(modal));
+            wait.until(ExpectedConditions.visibilityOf(modal));
             return !hasClass(modal, "hidden");
         } catch (TimeoutException e) {
             return false;
@@ -39,9 +45,8 @@ public class PhilosophyModalPage extends BasePage {
     }
 
     public List<String> getRuleTitles() {
-        List<WebElement> elements = findElements(ruleHeadings);
         List<String> titles = new ArrayList<>();
-        for (WebElement el : elements) {
+        for (WebElement el : ruleHeadings) {
             titles.add(el.getText().trim());
         }
         return titles;

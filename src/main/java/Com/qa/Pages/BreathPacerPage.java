@@ -1,14 +1,22 @@
 package Com.qa.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class BreathPacerPage extends BasePage {
 
-    private final By breathWidget = By.cssSelector(".breath-pacer-widget");
-    private final By breathLabel = By.cssSelector(".breath-pacer-widget .breath-label");
-    private final By breathCaption = By.cssSelector(".breath-pacer-widget .breath-caption");
-    private final By breathCore = By.cssSelector(".breath-pacer-widget .breath-ring-core");
+    @FindBy(css = ".breath-pacer-widget")
+    private WebElement breathWidget;
+
+    @FindBy(css = ".breath-pacer-widget .breath-label")
+    private WebElement breathLabel;
+
+    @FindBy(css = ".breath-pacer-widget .breath-caption")
+    private WebElement breathCaption;
+
+    @FindBy(css = ".breath-pacer-widget .breath-ring-core")
+    private WebElement breathCore;
 
     public BreathPacerPage(WebDriver driver) {
         super(driver);
