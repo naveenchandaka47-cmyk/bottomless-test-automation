@@ -1,0 +1,31 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+logs/
+
+# Maven target directory
+target/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+
+# TestNG output
+test-output/
+
+# ExtentReports output
+reports/
+test-reports/
+extent-reports/
+
+# OS files
+.DS_Store
+Thumbs.db

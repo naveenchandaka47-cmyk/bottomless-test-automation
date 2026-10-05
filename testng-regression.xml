@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Bottomless Full Regression Suite" verbose="1">
+    <listeners>
+        <listener class-name="com.bottomless.listeners.TestListener"/>
+    </listeners>
+
+    <test name="Smoke and Sanity Tests">
+        <classes>
+            <class name="com.bottomless.tests.SmokeTest"/>
+        </classes>
+    </test>
+
+    <test name="HUD and Telemetry Tests">
+        <classes>
+            <class name="com.bottomless.tests.HudAndTelemetryTest"/>
+        </classes>
+    </test>
+
+    <test name="Descent and Physics Tests">
+        <classes>
+            <class name="com.bottomless.tests.DescentControlsTest"/>
+        </classes>
+    </test>
+
+    <test name="Theme System Tests">
+        <classes>
+            <class name="com.bottomless.tests.ThemeSwitchingTest"/>
+        </classes>
+    </test>
+
+    <test name="Sound Controls Tests">
+        <classes>
+            <class name="com.bottomless.tests.SoundSettingsTest"/>
+        </classes>
+    </test>
+
+    <test name="Breath Companion Tests">
+        <classes>
+            <class name="com.bottomless.tests.BreathPacerTest"/>
+        </classes>
+    </test>
+
+    <test name="Philosophy Modal Tests">
+        <classes>
+            <class name="com.bottomless.tests.PhilosophyModalTest"/>
+        </classes>
+    </test>
+
+    <test name="Milestone Atlas Tests">
+        <classes>
+            <class name="com.bottomless.tests.AtlasDrawerTest"/>
+        </classes>
+    </test>
+</suite>
